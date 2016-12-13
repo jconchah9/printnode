@@ -54,7 +54,9 @@ gem 'pry-byebug'
 #barcode
 gem 'barby'
 gem 'chunky_png'
+gem "mini_magick"
 #generate pdf
 gem 'pdfkit'
 gem 'render_anywhere'
 gem 'wkhtmltopdf-binary'
+gem  'kramdown'

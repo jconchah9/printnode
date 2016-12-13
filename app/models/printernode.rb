@@ -5,6 +5,10 @@ class Printernode < ApplicationRecord
     @auth = PrintNode::Auth.new(api_key)
   end
 
+  def method_name(api_key = niñ)
+    @auth = PrintNode::Auth.new(api_key)
+  end
+
   def client
     @client = PrintNode::Client.new(@auth)
   end
@@ -21,14 +25,8 @@ class Printernode < ApplicationRecord
     @printer = client.printers(computer_id, printer_id)
   end
 
-  def printjobs(printer_id = nil, title = nil, content_type = nil, content = nil, source = nil,qty = nil)
-    hash_data = {'printerId': printer_id,
-            'title': title,
-            'contentType': content_type,
-            'content': content,
-            'source': source
-          }
-    hash_options ={'qty': qty}
-    @printjob = client.create_printjobs(hash_data, hash_options)
+  def printjob(printer_id = nil, title = nil, content_type = nil, content = nil, source = nil,qty = nil)
+    client.create_printjob({'printerId': printer_id, 'title': title, 'contentType': content_type, 'content': content, 'source': source}, {'qty': qty})
   end
+
 end
